@@ -15,6 +15,7 @@ class AddClientAssets
     public function configureClientView(ConfigureClientView $event) {
         if ($event->isForum()) {
             $event->addAssets(__DIR__.'/../../js/forum/dist/extension.js');
+            $event->addAssets(__DIR__.'/../../less/extension.less');
             $event->addBootstrapper('antoinefr/online/main');
         }
         if ($event->isAdmin()) {
