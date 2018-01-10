@@ -17,6 +17,10 @@ class AddClientAssets
             $event->addAssets(__DIR__.'/../../js/forum/dist/extension.js');
             $event->addBootstrapper('antoinefr/online/main');
         }
+        if ($event->isAdmin()) {
+            $event->addAssets(__DIR__.'/../../js/admin/dist/extension.js');
+            $event->addBootstrapper('antoinefr/online/main');
+        }
     }
     
     public function configureLocales(ConfigureLocales $event)

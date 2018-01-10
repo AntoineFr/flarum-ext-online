@@ -1,3 +1,7 @@
 antoinefr-online:
   forum:
     title: Qui est connecté ?
+  admin:
+    settings:
+      title: Paramètres
+      displaymax: Nombre de membres affichés

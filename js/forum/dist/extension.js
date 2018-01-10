@@ -26,10 +26,12 @@ System.register('antoinefr/online/main', ['flarum/extend', 'flarum/components/In
         execute: function () {
             app.initializers.add('antoinefr-online', function () {
                 extend(IndexPage.prototype, 'sidebarItems', function (items) {
+                    var displayMax = parseInt(app.forum.attribute('antoinefr-online.displaymax'));
                     var users = app.store.all('users').filter(function (u) {
                         return u.isOnline();
                     });
-                    var displayUsers = users.sort(orderByLastSeenTime);
+                    var total = users.length;
+                    var displayUsers = users.sort(orderByLastSeenTime).slice(0, displayMax);
 
                     var OnlineUsers = new ItemList();
 
@@ -43,6 +45,16 @@ System.register('antoinefr/online/main', ['flarum/extend', 'flarum/components/In
                         ));
                         i += 1;
                     });
+
+                    if (total > displayMax) {
+                        OnlineUsers.add('onlineuser-more', m(
+                            'p',
+                            null,
+                            'et ',
+                            total - displayMax,
+                            ' de plus ...'
+                        ));
+                    }
 
                     items.add('onlineUsers', FieldSet.component({
                         label: app.translator.trans('antoinefr-online.forum.title'),

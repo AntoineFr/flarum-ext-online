@@ -15,8 +15,10 @@ function orderByLastSeenTime(a, b) {
 
 app.initializers.add('antoinefr-online', function() {
     extend(IndexPage.prototype, 'sidebarItems', function(items) {
+        const displayMax = parseInt(app.forum.attribute('antoinefr-online.displaymax'));
         const users = app.store.all('users').filter(u => u.isOnline());
-        const displayUsers = users.sort(orderByLastSeenTime);
+        const total = users.length;
+        const displayUsers = users.sort(orderByLastSeenTime).slice(0, displayMax);
         
         const OnlineUsers = new ItemList();
         
@@ -30,6 +32,14 @@ app.initializers.add('antoinefr-online', function() {
             );
             i += 1;
         });
+        
+        if (total > displayMax) {
+            OnlineUsers.add('onlineuser-more',
+                <p>
+                    et {total - displayMax} de plus ...
+                </p>
+            );
+        }
         
         items.add('onlineUsers',
             FieldSet.component({
