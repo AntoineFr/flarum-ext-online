@@ -1,0 +1,25 @@
+{
+    "name": "antoinefr/flarum-ext-online",
+    "description": "Display online users on the left sidebar.",
+    "type": "flarum-extension",
+    "support": {
+        "issues": "https://github.com/AntoineFr/flarum-ext-online/issues",
+        "source": "https://github.com/AntoineFr/flarum-ext-online"
+    },
+    "require": {
+        "flarum/core": "^0.1.0-beta.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "AntoineFr\\Online\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Online",
+            "icon": {
+                "name": "user-circle"
+            }
+        }
+    }
+}
