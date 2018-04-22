@@ -57,7 +57,7 @@ System.register('antoinefr/online/main', ['flarum/extend', 'flarum/components/In
                     }
 
                     items.add('onlineUsers', FieldSet.component({
-                        label: app.translator.trans('antoinefr-online.forum.title'),
+                        label: app.forum.attribute('antoinefr-online.titleoflist'),
                         className: 'OnlineUsers',
                         children: OnlineUsers.toArray()
                     }));

@@ -20,6 +20,7 @@ class LoadSettingsFromDatabase
     public function prepareApiAttributes(PrepareApiAttributes $event) {
         if ($event->isSerializer(ForumSerializer::class)) {
             $event->attributes['antoinefr-online.displaymax'] = $this->settings->get('antoinefr-online.displaymax');
+            $event->attributes['antoinefr-online.titleoflist'] = $this->settings->get('antoinefr-online.titleoflist');
         }
     }
 }
