@@ -5,3 +5,4 @@ antoinefr-online:
     settings:
       title: Ustawienia
       displaymax: Liczba wyświetlonych użytkowników
+      titleoflist: Title

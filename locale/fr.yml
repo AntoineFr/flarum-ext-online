@@ -5,3 +5,4 @@ antoinefr-online:
     settings:
       title: Paramètres
       displaymax: Nombre de membres affichés
+      titleoflist: Titre à afficher au-dessus de la liste
