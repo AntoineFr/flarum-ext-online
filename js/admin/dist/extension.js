@@ -34,9 +34,15 @@ System.register('antoinefr/online/components/OnlineSettingsModal', ['flarum/comp
                             m(
                                 'label',
                                 null,
+                                app.translator.trans('antoinefr-online.admin.settings.titleoflist')
+                            ),
+                            m('input', { required: true, className: 'FormControl', type: 'number', bidi: this.setting('antoinefr-online.titleoflist') }),
+                            m(
+                                'label',
+                                null,
                                 app.translator.trans('antoinefr-online.admin.settings.displaymax')
                             ),
-                            m('input', { required: true, className: 'FormControl', type: 'number', bidi: this.setting('antoinefr-online.displaymax') })
+                            m('input', { required: true, className: 'FormControl', type: 'text', bidi: this.setting('antoinefr-online.displaymax') })
                         )];
                     }
                 }]);
