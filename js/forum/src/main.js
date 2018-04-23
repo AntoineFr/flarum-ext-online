@@ -51,6 +51,6 @@ app.initializers.add('antoinefr-online', function() {
         );
     });
     extend(HeaderPrimary.prototype, 'init', function() {
-    document.querySelector("head").innerHTML += '.OnlineUsers>legend:nth-child(1){color:' + coloroftitle + '}';
+    document.querySelector("head").innerHTML += '.OnlineUsers>legend:nth-child(1){color:' + app.forum.attribute('antoinefr-online.coloroftitle') + '}';
     });
 });
