@@ -21,6 +21,7 @@ class LoadSettingsFromDatabase
         if ($event->isSerializer(ForumSerializer::class)) {
             $event->attributes['antoinefr-online.displaymax'] = $this->settings->get('antoinefr-online.displaymax');
             $event->attributes['antoinefr-online.titleoflist'] = $this->settings->get('antoinefr-online.titleoflist');
+            $event->attributes['antoinefr-online.coloroftitle'] = $this->settings->get('antoinefr-online.coloroftitle');
         }
     }
 }

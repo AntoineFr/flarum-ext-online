@@ -4,6 +4,7 @@ import ItemList from 'flarum/utils/ItemList';
 import FieldSet from 'flarum/components/FieldSet';
 import avatar from 'flarum/helpers/avatar';
 import username from 'flarum/helpers/username';
+import Page from 'flarum/components/Page'
 
 function orderByLastSeenTime(a, b) {
     if (a.lastSeenTime() > b.lastSeenTime())
@@ -48,5 +49,8 @@ app.initializers.add('antoinefr-online', function() {
               children: OnlineUsers.toArray()
             })
         );
+    });
+    extend(Page.prototype, 'init', function() {
+    document.querySelector("head").innerHTML += '.OnlineUsers>legend:nth-child(1){color:' + coloroftitle + '}';
     });
 });

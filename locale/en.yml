@@ -6,3 +6,4 @@ antoinefr-online:
       title: Settings
       displaymax: Number of members displayed
       titleoflist: Title to be displayed above the list
+      coloroftitle: Color of the list title

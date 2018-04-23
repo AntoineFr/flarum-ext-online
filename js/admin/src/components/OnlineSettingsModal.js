@@ -16,6 +16,8 @@ export default class OnlineSettingsModal extends SettingsModal {
                 <input required className="FormControl" type="text" bidi={this.setting('antoinefr-online.titleoflist')}></input>
                 <label>{app.translator.trans('antoinefr-online.admin.settings.displaymax')}</label>
                 <input required className="FormControl" type="number" bidi={this.setting('antoinefr-online.displaymax')}></input>
+                <label>{app.translator.trans('antoinefr-online.admin.settings.coloroftitle')}</label>
+                <input required className="FormControl" type="color" bidi={this.setting('antoinefr-online.coloroftitle')}></input>
             </div>
         ];
     }
