@@ -1,0 +1,8 @@
+antoinefr-online:
+  forum:
+    title: Wer ist Online?
+  admin:
+    settings:
+      title: Einstellungen
+      displaymax: Anzahl der angezeigten Mitglieder
+      titleoflist: Title

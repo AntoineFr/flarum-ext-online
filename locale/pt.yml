@@ -5,3 +5,4 @@ antoinefr-online:
     settings:
       title: Configurações
       displaymax: Número de membros exibidos
+      titleoflist: Title
