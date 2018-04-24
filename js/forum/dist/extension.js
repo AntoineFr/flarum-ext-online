@@ -61,9 +61,8 @@ System.register('antoinefr/online/main', ['flarum/extend', 'flarum/components/In
                         className: 'OnlineUsers',
                         children: OnlineUsers.toArray()
                     }));
-                });
-                extend(IndexPage.prototype, 'sidebarItems', function () {
-                    document.querySelector("head").innerHTML += '<style>legend{color:' + app.forum.attribute('antoinefr-online.coloroftitle') + '}</style>';
+                    var coloroftitle = app.forum.attribute('antoinefr-online.coloroftitle');
+                    document.querySelector("head").innerHTML += '<style>legend{color:' + coloroftitle + '}</style>';
                 });
             });
         }

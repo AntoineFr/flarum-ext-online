@@ -48,8 +48,7 @@ app.initializers.add('antoinefr-online', function() {
               children: OnlineUsers.toArray()
             })
         );
-    });
-    extend(IndexPage.prototype, 'sidebarItems', function() {
-    document.querySelector("head").innerHTML += '<style>legend{color:' + app.forum.attribute('antoinefr-online.coloroftitle') + '}</style>';
+        const coloroftitle=app.forum.attribute('antoinefr-online.coloroftitle')
+        document.querySelector("head").innerHTML += '<style>legend{color:' + coloroftitle + '}</style>';
     });
 });
