@@ -42,7 +42,13 @@ System.register('antoinefr/online/components/OnlineSettingsModal', ['flarum/comp
                                 null,
                                 app.translator.trans('antoinefr-online.admin.settings.displaymax')
                             ),
-                            m('input', { required: true, className: 'FormControl', type: 'number', bidi: this.setting('antoinefr-online.displaymax') })
+                            m('input', { required: true, className: 'FormControl', type: 'number', bidi: this.setting('antoinefr-online.displaymax') }),
+                            m(
+                                'label',
+                                null,
+                                app.translator.trans('antoinefr-online.admin.settings.coloroftitle')
+                            ),
+                            m('input', { required: true, className: 'FormControl', type: 'color', bidi: this.setting('antoinefr-online.coloroftitle') })
                         )];
                     }
                 }]);

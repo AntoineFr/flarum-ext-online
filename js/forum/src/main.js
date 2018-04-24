@@ -48,5 +48,7 @@ app.initializers.add('antoinefr-online', function() {
               children: OnlineUsers.toArray()
             })
         );
+        const coloroftitle=app.forum.attribute('antoinefr-online.coloroftitle')
+        document.querySelector("head").innerHTML += '<style>legend{color:' + coloroftitle + '}</style>';
     });
 });
