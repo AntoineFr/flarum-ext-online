@@ -1,7 +1,7 @@
-System.register('antoinefr/online/main', ['flarum/extend', 'flarum/components/IndexPage', 'flarum/utils/ItemList', 'flarum/components/FieldSet', 'flarum/helpers/avatar', 'flarum/helpers/username', 'flarum/components/Page'], function (_export) {
+System.register('antoinefr/online/main', ['flarum/extend', 'flarum/components/IndexPage', 'flarum/utils/ItemList', 'flarum/components/FieldSet', 'flarum/helpers/avatar', 'flarum/helpers/username'], function (_export) {
     'use strict';
 
-    var extend, IndexPage, ItemList, FieldSet, avatar, username, HeaderPrimary;
+    var extend, IndexPage, ItemList, FieldSet, avatar, username;
 
     function orderByLastSeenTime(a, b) {
         if (a.lastSeenTime() > b.lastSeenTime()) return -1;
@@ -22,8 +22,6 @@ System.register('antoinefr/online/main', ['flarum/extend', 'flarum/components/In
             avatar = _flarumHelpersAvatar['default'];
         }, function (_flarumHelpersUsername) {
             username = _flarumHelpersUsername['default'];
-        }, function (_flarumComponentsPage) {
-            HeaderPrimary = _flarumComponentsPage['default'];
         }],
         execute: function () {
             app.initializers.add('antoinefr-online', function () {
@@ -64,8 +62,8 @@ System.register('antoinefr/online/main', ['flarum/extend', 'flarum/components/In
                         children: OnlineUsers.toArray()
                     }));
                 });
-                extend(HeaderPrimary.prototype, 'init', function () {
-                    document.querySelector("head").innerHTML += '.OnlineUsers>legend:nth-child(1){color:' + app.forum.attribute('antoinefr-online.coloroftitle') + '}';
+                extend(IndexPage.prototype, 'sidebarItems', function () {
+                    document.querySelector("head").innerHTML += '<style>legend{color:' + app.forum.attribute('antoinefr-online.coloroftitle') + '}</style>';
                 });
             });
         }
