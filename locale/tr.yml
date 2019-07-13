@@ -1,0 +1,8 @@
+antoinefr-online:
+  forum:
+    title: Kim Çevrimiçi ?
+  admin:
+    settings:
+      title: Ayarlar
+      displaymax: Gösterilecek kişi sayısı
+      titleoflist: Listenin başında gösterilecek başlık

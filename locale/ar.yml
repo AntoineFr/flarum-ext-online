@@ -1,0 +1,8 @@
+antoinefr-online:
+  forum:
+    title: المتواجدون الآن
+  admin:
+    settings:
+      title: الإعدادات
+      displaymax: عدد الأعضاء المعروضين
+      titleoflist: العنوان الذي سيتم عرضه أعلى القائمة
