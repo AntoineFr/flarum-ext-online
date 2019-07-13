@@ -1,5 +1,7 @@
 # flarum-ext-online
-Display online users on the left sidebar
+Display online users on the left sidebar.
+
+**This extension is compatible with Flarum beta 8.**
 
 ## Installation
 Run `composer require antoinefr/flarum-ext-online` in Flarum's folder.

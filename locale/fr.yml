@@ -1,6 +1,7 @@
 antoinefr-online:
   forum:
     title: Qui est connecté ?
+    andmore: "et {more} de plus ..."
   admin:
     settings:
       title: Paramètres
