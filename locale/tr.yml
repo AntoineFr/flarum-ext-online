@@ -1,8 +1,9 @@
 antoinefr-online:
   forum:
-    title: Kim Çevrimiçi ?
+    title: Aktif kullanıcılar
+    andmore: "{more} kişi daha..."
   admin:
     settings:
       title: Ayarlar
-      displaymax: Gösterilecek kişi sayısı
-      titleoflist: Listenin başında gösterilecek başlık
+      displaymax: Gösterilecek üye sayısı
+      titleoflist: Listenin üzerinde yazacak olan başlık
