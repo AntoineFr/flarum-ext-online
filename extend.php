@@ -2,7 +2,10 @@
 
 namespace AntoineFr\Online;
 
+use AntoineFr\Online\Api\Serializer\OnlineSerializer;
 use Flarum\Extend;
+use Flarum\Api\Controller\ShowForumController;
+use Flarum\Api\Serializer\ForumSerializer;
 
 return [
     (new Extend\Frontend('forum'))
@@ -13,7 +16,14 @@ return [
         ->js(__DIR__ . '/js/dist/admin.js'),
 
     new Extend\Locales(__DIR__ . '/locale'),
+
     (new Extend\Settings())
-        ->serializeToForum('antoinefr-online.titleoflist', 'antoinefr-online.titleoflist', 'strval', '')
-        ->serializeToForum('antoinefr-online.displaymax', 'antoinefr-online.displaymax', 'intval', 5)
+        ->serializeToForum('antoinefr-online.titleoflist', 'antoinefr-online.titleoflist', 'strval', ''),
+
+    (new Extend\ApiSerializer(ForumSerializer::class))
+        ->hasMany('online', OnlineSerializer::class),
+
+    (new Extend\ApiController(ShowForumController::class))
+        ->addInclude('online')
+        ->prepareDataForSerialization(LoadOnline::class)
 ];

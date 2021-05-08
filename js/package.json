@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@antoinefr/flarum-ext-money",
+  "name": "@antoinefr/flarum-ext-online",
   "dependencies": {
     "flarum-webpack-config": "0.1.0-beta.10",
     "webpack": "^4.46.0",
