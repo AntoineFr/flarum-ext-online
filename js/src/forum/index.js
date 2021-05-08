@@ -1,9 +1,10 @@
-import { extend } from 'flarum/extend';
-import IndexPage from 'flarum/components/IndexPage';
-import ItemList from 'flarum/utils/ItemList';
-import FieldSet from 'flarum/components/FieldSet';
-import avatar from 'flarum/helpers/avatar';
-import username from 'flarum/helpers/username';
+import { extend } from 'flarum/common/extend';
+import app from 'flarum/app';
+import IndexPage from 'flarum/forum/components/IndexPage';
+import FieldSet from 'flarum/common/components/FieldSet';
+import avatar from 'flarum/common/helpers/avatar';
+import username from 'flarum/common/helpers/username';
+import ItemList from 'flarum/common/utils/ItemList';
 
 function orderByLastSeenTime(a, b) {
     if (a.lastSeenAt() > b.lastSeenAt())
@@ -13,9 +14,9 @@ function orderByLastSeenTime(a, b) {
     return 0;
 }
 
-app.initializers.add('antoinefr-online', function() {
-    extend(IndexPage.prototype, 'sidebarItems', function(items) {
-        const displayMax = parseInt(app.forum.attribute('antoinefr-online.displaymax'));
+app.initializers.add('antoinefr-online', function () {
+    extend(IndexPage.prototype, 'sidebarItems', function (items) {
+        const displayMax = app.forum.attribute('antoinefr-online.displaymax');
         const users = app.store.all('users').filter(u => u.isOnline());
         const total = users.length;
         const displayUsers = users.sort(orderByLastSeenTime).slice(0, displayMax);
@@ -26,8 +27,8 @@ app.initializers.add('antoinefr-online', function() {
         displayUsers.forEach((user) => {
             OnlineUsers.add('onlineuser-' + i,
                 <a href={app.forum.attribute('baseUrl') + '/u/' + user.id()}>
-                    {avatar(user, {className: 'OnlineUser-avatar'})}
-                    {username(user, {className: 'OnlineUser-name'})}
+                    {avatar(user, { className: 'OnlineUser-avatar' })}
+                    {username(user, { className: 'OnlineUser-name' })}
                 </a>
             );
             i += 1;
@@ -43,10 +44,9 @@ app.initializers.add('antoinefr-online', function() {
 
         items.add('onlineUsers',
             FieldSet.component({
-              label: app.forum.attribute('antoinefr-online.titleoflist'),
-              className: 'OnlineUsers',
-              children: OnlineUsers.toArray()
-            })
+                label: app.forum.attribute('antoinefr-online.titleoflist'),
+                className: 'OnlineUsers'
+            }, OnlineUsers.toArray())
         );
     });
 });
