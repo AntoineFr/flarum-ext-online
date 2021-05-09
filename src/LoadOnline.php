@@ -25,10 +25,8 @@ class LoadOnline
 
         $online = User::query()->whereRaw('? < last_seen_at', [$ago])->get();
 
-        $filtered = collect($online)->map(function ($user) use ($actor) {
-            if ($user->getPreference('discloseOnline') || $actor->can('viewLastSeenAt', $user)) {
-                return $user;
-            }
+        $filtered = collect($online)->filter(function ($user) use ($actor) {
+            return ($user->getPreference('discloseOnline') || $actor->can('viewLastSeenAt', $user));
         });
 
         $max = (int) $this->settings->get('antoinefr-online.displaymax', 5);
