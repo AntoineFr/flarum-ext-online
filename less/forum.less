@@ -6,7 +6,7 @@
         color: @text-color;
     }
 
-    &-item {
+    &-item:not(:last-child) {
         margin-bottom: .25rem;
     }
 
@@ -17,5 +17,9 @@
         font-size: 12px;
         margin-right: 6px;
         vertical-align: middle;
+    }
+
+    &-more {
+        margin-top: .25rem;
     }
 }

@@ -31,7 +31,9 @@ class LoadOnline
         });
 
         $max = (int) $this->settings->get('antoinefr-online.displaymax', 5);
+        $sliced = $filtered->slice(0, $max <= 0 ? null : $max);
 
-        $data['online'] = $filtered->slice(0, $max <= 0 ? null : $max);
+        $data['online'] = $sliced;
+        $data['onlineMore'] = $filtered->count() - $sliced->count();
     }
 }

@@ -12,5 +12,14 @@ export default class OnlineState {
 
             return 0;
         });
+        this.onlineMore = app.forum.data.relationships.onlineMore;
+    }
+
+    isMore() {
+        return typeof this.onlineMore !== 'undefined';
+    }
+
+    getMore() {
+        return this.onlineMore.data.id;
     }
 }

@@ -28,7 +28,12 @@ export default class OnlineUsers extends Component {
                             ])
                         ]);
                     })
-                ])
+                ]),
+                app.onlineState.isMore() ? [
+                    m('.OnlineUsers-more', [
+                        m('p', app.translator.trans('antoinefr-online.forum.andmore', { more: app.onlineState.getMore() }))
+                    ])
+                ] : null
             ])
         ];
     }
