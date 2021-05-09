@@ -24,16 +24,28 @@ class LoadOnline
         $actor = $request->getAttribute('actor');
         $ago = Carbon::now()->subtract(5, 'minutes');
 
-        $online = User::query()->whereRaw('? < last_seen_at', [$ago])->get();
+        $users = User::query()->whereRaw('? < last_seen_at', [$ago])->get();
 
-        $filtered = collect($online)->filter(function (User $user) use ($actor) {
+        $filtered = collect($users)->filter(function (User $user) use ($actor) {
             return ($user->getPreference('discloseOnline') || $actor->can('viewLastSeenAt', $user));
         });
 
-        $max = (int) $this->settings->get('antoinefr-online.displaymax', 5);
-        $sliced = $filtered->slice(0, $max <= 0 ? null : $max);
+        $max = (int) $this->settings->get('antoinefr-online.displaymax');
 
-        $data['online'] = $sliced;
-        $data['onlineMore'] = $filtered->count() - $sliced->count();
+        $online = collect();
+        $onlineMore = 0;
+
+        if ($max < 0) {
+            $online->push(...$filtered);
+        } else if ($max === 0) {
+            $onlineMore = $filtered->count();
+        } else {
+            $sliced = $filtered->slice(0, $max);
+            $online->push(...$sliced);
+            $onlineMore = $filtered->count() - $sliced->count();
+        }
+
+        $data['online'] = $online;
+        $data['onlineMore'] = $onlineMore;
     }
 }

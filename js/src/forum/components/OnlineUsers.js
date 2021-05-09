@@ -10,6 +10,8 @@ export default class OnlineUsers extends Component {
         if (!app.onlineState) {
             app.onlineState = new OnlineState();
         }
+
+        this.more = app.onlineState.isMore() ? app.onlineState.getMore() : null;
     }
 
     view() {
@@ -29,9 +31,13 @@ export default class OnlineUsers extends Component {
                         ]);
                     })
                 ]),
-                app.onlineState.isMore() ? [
+                this.more ? [
                     m('.OnlineUsers-more', [
-                        m('p', app.translator.trans('antoinefr-online.forum.andmore', { more: app.onlineState.getMore() }))
+                        app.onlineState.users.length > 0 ? [
+                            m('p', app.translator.trans('antoinefr-online.forum.andmore', { more: this.more }))
+                        ] : [
+                            m('p', app.translator.transChoice('antoinefr-online.forum.online_users', this.more, { more: this.more }))
+                        ]
                     ])
                 ] : null
             ])
