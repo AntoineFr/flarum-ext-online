@@ -20,12 +20,13 @@ class LoadOnline
 
     public function __invoke(ShowForumController $controller, &$data, ServerRequestInterface $request, Document $document)
     {
+        /** @var User */
         $actor = $request->getAttribute('actor');
         $ago = Carbon::now()->subtract(5, 'minutes');
 
         $online = User::query()->whereRaw('? < last_seen_at', [$ago])->get();
 
-        $filtered = collect($online)->filter(function ($user) use ($actor) {
+        $filtered = collect($online)->filter(function (User $user) use ($actor) {
             return ($user->getPreference('discloseOnline') || $actor->can('viewLastSeenAt', $user));
         });
 

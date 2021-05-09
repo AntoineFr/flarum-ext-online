@@ -22,7 +22,8 @@ class OnlineSerializer extends AbstractSerializer
             'username'    => $user->username,
             'displayName' => $user->display_name,
             'avatarUrl'   => $user->avatar_url,
-            'slug'        => $this->slugManager->forResource(User::class)->toSlug($user)
+            'slug'        => $this->slugManager->forResource(User::class)->toSlug($user),
+            'lastSeenAt'  => $user->last_seen_at
         ];
     }
 }
