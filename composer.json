@@ -2,12 +2,14 @@
     "name": "antoinefr/flarum-ext-online",
     "description": "Display online users on the left sidebar.",
     "type": "flarum-extension",
+    "license": "MIT",
     "support": {
         "issues": "https://github.com/AntoineFr/flarum-ext-online/issues",
-        "source": "https://github.com/AntoineFr/flarum-ext-online"
+        "source": "https://github.com/AntoineFr/flarum-ext-online",
+        "forum": "https://discuss.flarum.org/d/8302"
     },
     "require": {
-        "flarum/core": "^0.1.0-beta.8"
+        "flarum/core": ">=0.1.0-beta.16 <=0.1.0"
     },
     "autoload": {
         "psr-4": {
@@ -17,6 +19,7 @@
     "extra": {
         "flarum-extension": {
             "title": "Online",
+            "category": "feature",
             "icon": {
                 "name": "fas fa-user-circle",
                 "backgroundColor": "#87ceeb",
