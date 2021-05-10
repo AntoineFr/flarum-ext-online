@@ -20,7 +20,6 @@ class LoadOnline
 
     public function __invoke(ShowForumController $controller, &$data, ServerRequestInterface $request, Document $document)
     {
-        /** @var User */
         $actor = $request->getAttribute('actor');
         $ago = Carbon::now()->subtract(5, 'minutes');
 
