@@ -32,12 +32,11 @@ export default class OnlineUsers extends Component {
                     })
                 ]),
                 this.more ? [
-                    m('.OnlineUsers-more', [
-                        app.onlineState.users.length > 0 ? [
-                            m('p', app.translator.trans('antoinefr-online.forum.andmore', { more: this.more }))
-                        ] : [
-                            m('p', app.translator.transChoice('antoinefr-online.forum.online_users', this.more, { more: this.more }))
-                        ]
+                    m('p.OnlineUsers-more', [
+                        app.translator.trans(
+                            app.onlineState.users.length > 0 ? 'antoinefr-online.forum.andmore' : 'antoinefr-online.forum.online_users',
+                            { more: this.more }
+                        )
                     ])
                 ] : null
             ])
