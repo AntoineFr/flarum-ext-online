@@ -1,9 +1,0 @@
-antoinefr-online:
-  forum:
-    title: Aktif kullanıcılar
-    andmore: "{more} kişi daha..."
-  admin:
-    settings:
-      title: Ayarlar
-      displaymax: Gösterilecek üye sayısı
-      titleoflist: Listenin üzerinde yazacak olan başlık

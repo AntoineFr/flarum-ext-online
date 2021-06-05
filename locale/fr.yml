@@ -2,6 +2,7 @@ antoinefr-online:
   forum:
     title: Qui est connecté ?
     andmore: "et {more} de plus ..."
+    online_users: "{more, plural, one {# connecté} other {# connectés}}"
   admin:
     settings:
       title: Paramètres

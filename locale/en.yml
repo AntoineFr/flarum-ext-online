@@ -2,7 +2,7 @@ antoinefr-online:
   forum:
     title: Who is online?
     andmore: "and {more} more..."
-    online_users: "{more} user is online|{more} users are online"
+    online_users: "{more, plural, one {# user is online} other {# users are online}}"
   admin:
     settings:
       displaymax: Number of members displayed
